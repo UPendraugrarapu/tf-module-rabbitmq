@@ -3,3 +3,7 @@ data "aws_ami" "ami" {
     name_regex = "devops-practice-ansible"
     owners = ["self"]
 }
+
+data "aws_route53_zone" "domain" {
+    name = var.dns_domain
+}
