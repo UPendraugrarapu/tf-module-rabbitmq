@@ -47,11 +47,11 @@ resource "aws_instance" "rabbitmq" {
     {Name = "${var.env}-rabbitmq"}
   )
 }
-resource "aws_ec2_tag" "name-tag" {
+/*resource "aws_ec2_tag" "name-tag" {
   key         = "Name"
   resource_id = aws_instance.rabbitmq.private_ip
   value       = "rabbitmq-${var.env}"
-}
+}*/
 resource "aws_route53_record" "main" {
   zone_id = data.aws_route53_zone.domain.zone_id
   name    = "rabbitmq-${var.env}.${var.dns_domain}"
